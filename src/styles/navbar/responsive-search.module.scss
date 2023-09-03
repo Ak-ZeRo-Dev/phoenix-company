@@ -30,7 +30,7 @@
       font-weight: 100;
     }
     &:focus {
-      width: 170px;
+      width: 150px;
       border-radius: 0px;
       background-color: transparent;
       border-bottom: 1px solid $secondary-color;
@@ -57,7 +57,7 @@
     background-color: transparent;
     pointer-events: painted;
     &:focus ~ .input-search {
-      width: 170px;
+      width: 150px;
       border-radius: 0px;
       background-color: transparent;
       border-bottom: 1px solid $secondary-color;
