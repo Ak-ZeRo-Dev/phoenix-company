@@ -1,0 +1,20 @@
+@use "../global/variables.scss" as *;
+@use "../helpers/mixins.scss" as *;
+#main-nav {
+  background: $primary-color;
+  background: -webkit-linear-gradient(to right top, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right top, #24243e, #302b63, #0f0c29);
+  height: $nav-dims;
+  color: $secondary-color;
+  position: relative;
+  #nav-container {
+    @include flex(space-between);
+    flex-wrap: wrap;
+
+    #items {
+      flex: none;
+      @include flex(end);
+      gap: 10px;
+    }
+  }
+}

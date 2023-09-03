@@ -1,0 +1,190 @@
+@use "../global/variables.scss" as *;
+@use "../helpers/mixins.scss" as *;
+@use "../global/animation.scss" as *;
+
+#btn-list {
+  position: relative;
+  @include breakPoint(gsm) {
+    flex-direction: column;
+  }
+  > a {
+    #down-arrow {
+      padding-right: 5px;
+    }
+  }
+  > ul {
+    position: absolute;
+    top: calc(100% + 5px);
+    width: 150px;
+    background-color: $primary-color;
+    background: -webkit-linear-gradient(
+      to right top,
+      #24243e,
+      #302b63,
+      #0f0c29
+    );
+    background: linear-gradient(to right top, #24243e, #302b63, #0f0c29);
+    z-index: 1;
+    opacity: 1;
+    animation: down-menu 0.5s ease;
+    border-radius: 10px;
+    -webkit-animation: down-menu 0.5s ease;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    @include breakPoint(gsm) {
+      position: relative;
+      width: 100%;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+    }
+    > li {
+      padding: 15px;
+
+      &:first-child {
+        border-radius: 10px 10px 0 0;
+        -webkit-border-radius: 10px 10px 0 0;
+        -moz-border-radius: 10px 10px 0 0;
+        -ms-border-radius: 10px 10px 0 0;
+        -o-border-radius: 10px 10px 0 0;
+      }
+      &:last-child {
+        border-radius: 0 0 10px 10px;
+        -webkit-border-radius: 0 0 10px 10px;
+        -moz-border-radius: 0 0 10px 10px;
+        -ms-border-radius: 0 0 10px 10px;
+        -o-border-radius: 0 0 10px 10px;
+      }
+      @include breakPoint(gsm) {
+        &:first-child {
+          border-radius: 0;
+          -webkit-border-radius: 0;
+          -moz-border-radius: 0;
+          -ms-border-radius: 0;
+          -o-border-radius: 0;
+        }
+        &:last-child {
+          border-radius: 0;
+          -webkit-border-radius: 0;
+          -moz-border-radius: 0;
+          -ms-border-radius: 0;
+          -o-border-radius: 0;
+        }
+      }
+      &:not(:last-child) {
+        border-bottom: 2px solid $third-color;
+      }
+      &:hover > a {
+        transform: translateX(-10px);
+        -webkit-transform: translateX(-10px);
+        -moz-transform: translateX(-10px);
+        -ms-transform: translateX(-10px);
+        -o-transform: translateX(-10px);
+      }
+      > a {
+        display: block;
+        transition: transform 0.3s ease;
+        -webkit-transition: transform 0.3s ease;
+        -moz-transition: transform 0.3s ease;
+        -ms-transition: transform 0.3s ease;
+        -o-transition: transform 0.3s ease;
+      }
+    }
+  }
+}
+.selected {
+  background-color: $third-color;
+}
+#nav-list {
+  flex: 3;
+  @include flex;
+  gap: 0.7rem;
+  @include breakPoint(gsm) {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: $primary-color;
+    background: -webkit-linear-gradient(
+      to right top,
+      #24243e,
+      #302b63,
+      #0f0c29
+    );
+    background: linear-gradient(to right top, #24243e, #302b63, #0f0c29);
+    width: 100%;
+    z-index: 10;
+    align-items: start;
+    gap: 0;
+    animation: down-menu 0.5s ease;
+    border-radius: 0 0 10px 10px;
+    -webkit-animation: down-menu 0.5s ease;
+    -webkit-border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    -ms-border-radius: 0 0 10px 10px;
+    -o-border-radius: 0 0 10px 10px;
+  }
+  li {
+    transition: background-color 0.3s ease 0s;
+    -webkit-transition: background-color 0.3s ease 0s;
+    -moz-transition: background-color 0.3s ease 0s;
+    -ms-transition: background-color 0.3s ease 0s;
+    -o-transition: background-color 0.3s ease 0s;
+    &:hover {
+      background-color: $third-color;
+    }
+  }
+  > li {
+    cursor: pointer;
+    @include flex;
+    @include breakPoint(gsm) {
+      justify-content: start;
+      width: 100%;
+      &:last-child {
+        border-radius: 0 0 10px 10px;
+        -webkit-border-radius: 0 0 10px 10px;
+        -moz-border-radius: 0 0 10px 10px;
+        -ms-border-radius: 0 0 10px 10px;
+        -o-border-radius: 0 0 10px 10px;
+      }
+      &:not(:last-child) {
+        border-bottom: 2px solid $third-color;
+      }
+    }
+    > a {
+      @include breakPoint(gsm) {
+        width: 100%;
+        justify-content: start;
+      }
+      position: relative;
+      overflow: hidden;
+      font-size: 1rem;
+      @include flex;
+      height: 50px;
+      padding: 0 15px;
+      @include breakPoint(gsm) {
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 4px;
+        background-color: $third-color;
+        transition: right 0.3s ease 0s;
+        -webkit-transition: right 0.3s ease 0s;
+        -moz-transition: right 0.3s ease 0s;
+        -ms-transition: right 0.3s ease 0s;
+        -o-transition: right 0.3s ease 0s;
+      }
+      &:hover::before {
+        right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@use "../global/variables.scss" as *;
+#logo {
+  flex: none;
+  #logo-img {
+    width: $nav-dims;
+    height: $nav-dims;
+  }
+}

@@ -1,0 +1,95 @@
+@use "../global/variables.scss" as *;
+
+$rad: 0.7rem;
+$dur: 0.3s;
+$color-dark: #2f2f2f;
+$color-light: #fff;
+$height: 1.9rem;
+$btn-width: 3rem;
+$bez: cubic-bezier(0, 0, 0.43, 1.49);
+
+#search-bar {
+  position: relative;
+  width: 16rem;
+  background-color: $primary-color;
+  background: -webkit-linear-gradient(to right top, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right top, #24243e, #302b63, #0f0c29);
+  border-radius: $rad;
+  display: flex;
+  margin-left: 25px;
+  // @include breakPoint(gmd) {
+  //   display: none;
+  // }
+  label {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+  }
+  input,
+  button {
+    height: $height;
+    border: 0;
+
+    font-size: 1.1rem;
+  }
+  input[type="search"] {
+    color: $color-dark;
+    outline: 0;
+    width: 100%;
+    background: $color-light;
+    padding: 0 1.6rem;
+    border-radius: $rad;
+    appearance: none;
+    transition: all $dur $bez;
+    transition-property: width, border-radius;
+    z-index: 1;
+    position: relative;
+    -webkit-border-radius: $rad;
+    -moz-border-radius: $rad;
+    -ms-border-radius: $rad;
+    -o-border-radius: $rad;
+    -webkit-transition: all $dur $bez;
+    -moz-transition: all $dur $bez;
+    -ms-transition: all $dur $bez;
+    -o-transition: all $dur $bez;
+    &:not(:placeholder-shown) {
+      width: calc(100% - $btn-width);
+      border-radius: 0 $rad $rad 0;
+      -webkit-border-radius: 0 $rad $rad 0;
+      -moz-border-radius: 0 $rad $rad 0;
+      -ms-border-radius: 0 $rad $rad 0;
+      -o-border-radius: 0 $rad $rad 0;
+      + button {
+        display: block;
+      }
+    }
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+  }
+  button {
+    color: $secondary-color;
+    display: none;
+    top: 0;
+    right: 0;
+    width: $btn-width;
+    font-weight: bold;
+    background-color: $primary-color;
+    background: -webkit-linear-gradient(
+      to right top,
+      #24243e,
+      #302b63,
+      #0f0c29
+    );
+    background: linear-gradient(to right top, #24243e, #302b63, #0f0c29);
+    border-radius: $rad 0 0 $rad;
+    -webkit-border-radius: $rad 0 0 $rad;
+    -moz-border-radius: $rad 0 0 $rad;
+    -ms-border-radius: $rad 0 0 $rad;
+    -o-border-radius: $rad 0 0 $rad;
+  }
+}

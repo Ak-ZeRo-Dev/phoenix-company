@@ -1,0 +1,115 @@
+// Center element
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+@mixin center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+@mixin center-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+@mixin flex($justify-content: center, $align-items: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+// Add overlay
+@mixin overlay($color, $opacity) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color, $opacity);
+}
+// Add animation
+@mixin keyF($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+}
+
+// Add media query
+@mixin breakPoint($point) {
+  @if $point == xs {
+    @media (max-width: 575px) {
+      @content;
+    }
+  } @else if $point == sm {
+    @media (min-width: 576px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if $point == md {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if $point == lg {
+    @media (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if $point == xl {
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      @content;
+    }
+  } @else if $point == xxl {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  } @else if $point == gsm {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $point == gmd {
+    @media (max-width: 991px) {
+      @content;
+    }
+  } @else if $point == glg {
+    @media (max-width: 1199px) {
+      @content;
+    }
+  } @else if $point == gxl {
+    @media (max-width: 1399px) {
+      @content;
+    }
+  }
+}
+
+@mixin grid-c($min-width, $gap: none) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+  gap: $gap;
+}
+
+@mixin transition($items: all, $time: 0.3s, $move: ease) {
+  transition: $items $time $move;
+  -webkit-transition: $items $time $move;
+  -moz-transition: $items $time $move;
+  -ms-transition: $items $time $move;
+  -o-transition: $items $time $move;
+}

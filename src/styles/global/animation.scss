@@ -1,0 +1,26 @@
+@use "../helpers/mixins.scss" as *;
+@use "./variables.scss" as *;
+
+@include keyF(down-menu) {
+  0% {
+    transform: translateY(-30%);
+    opacity: 0;
+    z-index: -1;
+    -webkit-transform: translateY(-30%);
+    -moz-transform: translateY(-30%);
+    -ms-transform: translateY(-30%);
+    -o-transform: translateY(-30%);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}

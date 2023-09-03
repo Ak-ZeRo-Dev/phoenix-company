@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  @if (#{&[lang] == "ar"}) {
+    body {
+      direction: rtl;
+    }
+  } @else {
+    body {
+      direction: ltr;
+    }
+  }
+}
+
+body {
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
